@@ -6,121 +6,137 @@
 <title>Ａ０ＡＲＫ３</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #007BFF, #A070FF, #FF70B3, #FF8C00, #800080); /* 元の背景 */
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  background:linear-gradient(135deg,#007BFF,#A070FF,#FF70B3,#FF8C00,#800080);
 }
 
-h1, h2 {
-  text-align: center;
-  color: white;
-  padding: 10px;
-  margin: 0;
+h1,h2{
+  text-align:center;
+  color:#fff;
+  padding:10px;
+  margin:0;
 }
 
-h2 {
-  font-size: 20px;
-  background: rgba(0,0,0,0.3);
+h2{
+  font-size:20px;
+  background:rgba(0,0,0,0.3);
 }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 15px;
-  padding: 15px;
+.about-floating{
+  position:fixed;
+  top:15px;
+  right:20px;
+  background:rgba(0,0,0,0.35);
+  color:#fff;
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:999px;
+  text-decoration:none;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  z-index:1000;
+  opacity:.9;
+  transition:.3s;
+}
+.about-floating:hover{
+  opacity:1;
+  background:rgba(0,0,0,0.55);
 }
 
-.card {
-  background: #fff;
-  border-radius: 15px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  min-width: 140px;
-  max-width: 180px;
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:15px;
+  padding:15px;
 }
 
-.card img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer;
-  transition: transform 0.3s;
+.card{
+  background:#fff;
+  border-radius:15px;
+  padding:15px;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  min-width:140px;
+  max-width:180px;
 }
 
-.card img:hover {
-  transform: scale(1.1);
+.card img{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  object-fit:cover;
+  cursor:pointer;
+  transition:.3s;
+}
+.card img:hover{transform:scale(1.1);}
+
+.name{
+  margin-top:10px;
+  font-weight:bold;
+  font-size:14px;
+  white-space:nowrap;
 }
 
-.name {
-  margin-top: 10px;
-  font-weight: bold;
-  font-size: 14px;
-  display: block;
-  white-space: nowrap;   /* 改行させない */
-  overflow: visible;     /* はみ出ても隠さない */
-  text-overflow: unset;  /* …を出さない */
+.modal-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  z-index:999;
 }
 
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+.modal-box{
+  background:#fff;
+  border-radius:12px;
+  padding:20px;
+  width:90%;
+  max-width:350px;
+  text-align:center;
+  position:relative;
+  box-shadow:0 8px 30px rgba(0,0,0,0.3);
 }
 
-.modal-box {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  width: 90%;
-  max-width: 350px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+.modal-box img{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  margin-bottom:10px;
 }
 
-.modal-box img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  margin-bottom: 10px;
+.modal-box a{
+  display:block;
+  margin:8px 0;
+  padding:10px;
+  border-radius:8px;
+  text-decoration:none;
+  color:#fff;
+  font-size:15px;
 }
 
-.modal-box a {
-  display: block;
-  margin: 8px 0;
-  padding: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  font-size: 15px;
-}
+.youtube{background:#ff0000;}
+.twitter{background:#000;}
+.lit{background:#9494f8;}
 
-.youtube { background: #ff0000; }
-.twitter { background: #000000; }
-.lit { background: #9494f8; }
-
-.modal-close-btn {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #555;
-  cursor: pointer;
+.modal-close-btn{
+  position:absolute;
+  top:10px;
+  right:12px;
+  font-size:20px;
+  font-weight:bold;
+  color:#555;
+  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
+
+<a href="about.html" class="about-floating">このサイトについて</a>
 
 <h1>Ａ０ＡＲＫ３</h1>
 
@@ -135,71 +151,66 @@ h2 {
 </div>
 
 <script>
-// 主催メンバー
-const mainMembers = [
-  { name:"【企画】青星あお", icon:"https://yt3.googleusercontent.com/oqaUt7-ZtU0OMqfxfuNpi5LGXMkP8qkYIr7xzXswizBh-JbLc__DCAtbYpKDTpumFgmLXXFI=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@A0B0SH1", twitter:"https://x.com/A0B0SH1", lit:"https://lit.link/a0B0sh1" },
-  { name:"【窓口】胡蝶レイ", icon:"https://yt3.googleusercontent.com/V10KyYstx5PtaDSN8LYosSR6htCRW5mv8Pv3fofw5w5GWV0D-59ghE2IS67_i5S4D7-QlGoV=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@kochourei", twitter:"https://x.com/kochorei", lit:"https://lit.link/kochorei" },
-  { name:"【窓口】猫戸ネル", icon:"https://yt3.googleusercontent.com/9LtaLCK-1zoaees0JNS2cNcdfdu-glV4Mvt9aK7hLsLdRMpvaaDVUxi5rvBTI6FOzJ_jbyTOaQ=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@nek0t0_neru", twitter:"https://x.com/nek0t0neru_zzz", lit:"https://lit.link/nekotoneru" },
-  { name:"【管理】三柴ミスケ", icon:"https://yt3.googleusercontent.com/6bP7nOXok4H-VPHxrTs6e8TlEllNMFCF3kfB0_M5643zvsoxS1b5Xj5cnEXEIQ9JluUvSQc1CQ=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@mimisuke", twitter:"https://x.com/cafe_bergamot", lit:"" },
-  { name:"【発案】宵星遊", icon:"https://yt3.googleusercontent.com/WHThOu5DgUIUd6meAW_wiuz2prbyHSzYA8OSyqSoPuEEv_LB7zxPH1Mx-vSH-lhYSKFjpFQSsQ=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@Yoiboshi_Yu", twitter:"https://x.com/Yoiboshi_Yu", lit:"https://lit.link/YoiboshiYu" }
+const mainMembers=[
+{name:"【企画】青星あお",icon:"https://yt3.googleusercontent.com/oqaUt7-ZtU0OMqfxfuNpi5LGXMkP8qkYIr7xzXswizBh-JbLc__DCAtbYpKDTpumFgmLXXFI=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@A0B0SH1",twitter:"https://x.com/A0B0SH1",lit:"https://lit.link/a0B0sh1"},
+{name:"【窓口】胡蝶レイ",icon:"https://yt3.googleusercontent.com/V10KyYstx5PtaDSN8LYosSR6htCRW5mv8Pv3fofw5w5GWV0D-59ghE2IS67_i5S4D7-QlGoV=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@kochourei",twitter:"https://x.com/kochorei",lit:"https://lit.link/kochorei"},
+{name:"【窓口】猫戸ネル",icon:"https://yt3.googleusercontent.com/9LtaLCK-1zoaees0JNS2cNcdfdu-glV4Mvt9aK7hLsLdRMpvaaDVUxi5rvBTI6FOzJ_jbyTOaQ=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@nek0t0_neru",twitter:"https://x.com/nek0t0neru_zzz",lit:"https://lit.link/nekotoneru"},
+{name:"【管理】三柴ミスケ",icon:"https://yt3.googleusercontent.com/6bP7nOXok4H-VPHxrTs6e8TlEllNMFCF3kfB0_M5643zvsoxS1b5Xj5cnEXEIQ9JluUvSQc1CQ=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@mimisuke",twitter:"https://x.com/cafe_bergamot",lit:""},
+{name:"【発案】宵星遊",icon:"https://yt3.googleusercontent.com/WHThOu5DgUIUd6meAW_wiuz2prbyHSzYA8OSyqSoPuEEv_LB7zxPH1Mx-vSH-lhYSKFjpFQSsQ=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@Yoiboshi_Yu",twitter:"https://x.com/Yoiboshi_Yu",lit:"https://lit.link/YoiboshiYu"}
 ];
 
-// 参加メンバー
-const joinMembers = [
-  { name:"燈桜メリア", icon:"https://yt3.googleusercontent.com/xlfIj6xbG1UOqCkH2_vpO3K5y7SxZAzNuOoy0QhWkx1fpfdT-ApVVncaTnqNpxMV0O48GWxrIw=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@HizakuraMelia", twitter:"https://x.com/melia_hizakura", lit:"https://lit.link/HizakuraMelia" },
-  { name:"シェイド・グレイシア", icon:"https://yt3.googleusercontent.com/OWgRic0kxL761xO5IKEqvXt4NkIVs9EXwb5w8nDJFTG4aq-zQ0e2SwMVYC6-tA2OoWtOo9-e=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@ShadeGlaciai", twitter:"https://x.com/ShadeGlacia", lit:"" },
-  { name:"ブルハ・ブルチ", icon:"https://yt3.googleusercontent.com/Z8oyfK9-yCdQe_36aqWGhy9rAYJKw2Z7DhsjgKOOO_rFMmyF7SdzuFfNkLYFpT_3QSG4awGFyw=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@buruchiCH", twitter:"https://x.com/buruchi0201", lit:"" },
-  { name:"黄ノ瀬 オブリ", icon:"https://yt3.googleusercontent.com/7iZke3rE-7m_duWommP4CR-igJBguNPVkJ0oEK2wnS99sM4eMsKbSlIb5xCBMCF4XLxMOwmRYj0=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@obu_youtube", twitter:"https://x.com/obbli_kinose", lit:"https://lit.link/obblikinose" },
-  { name:"如月ヴァン", icon:"https://yt3.googleusercontent.com/s3FXxBmkrvagWFZhb1Y8qqiMADV64Wsox2M8JKWR4o86i5ZDL6dqKvjCef98E3z9KqLZf7ghTNI=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@kisaragi_van", twitter:"https://x.com/kisaragi_van", lit:"" },
-  { name:"尾前くう", icon:"https://yt3.googleusercontent.com/DJTGYDKv5wY89lkEE6nzhsGhA6MZ_hnlzgFy9Y47L5t5DNC2Ievm7kQaAdWNKhW_KZGI6ryD=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@Omaekuu", twitter:"https://x.com/0mae_kuu", lit:"https://lit.link/0maekuu" },
-  { name:"Vi", icon:"https://yt3.googleusercontent.com/D5gZV6ci4xwpfnM0k0oYAnL9TGViI9NWx-NECeAOAda0sWIC7wrnBUjxJoPNbyiGRvL0EvSh=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@Vi_Vibre_JP", twitter:"https://x.com/Vi_VTuer", lit:"" },
-  { name:"虎鈴ととら", icon:"https://yt3.googleusercontent.com/11n8u8jC-yKD_s83NgsNX9TBBPujKStUWzQc7Z_CFb8NdSt33WmDgQkmyj9D1DpXFcFfqdPP=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@kosuzu_totora", twitter:"https://x.com/KosuzuTotora", lit:"https://lit.link/totora1010" },
-  { name:"雨ノ詠ツユ", icon:"https://yt3.googleusercontent.com/Adj33mxU7dE92eyRRb7BIMH66JlrlHJBOrIpqlClRW8k6I2EbSxekbxyqTgRwf_oqJGTS_TZ3OA=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/@amenouta24", twitter:"https://x.com/amenouta24", lit:"https://lit.link/amenouta24" },
-  { name:"風車ひまり", icon:"https://yt3.googleusercontent.com/ratqjMn06Up8J9XNXsFCLEn-1U9ggjyWm8sNueV1kewwnnRD8wwf_Rdx75Jw7T0YT7NPRWXnrA=s160-c-k-c0x00ffffff-no-rj", youtube:"https://www.youtube.com/channel/UCvEYutoYNTb1eQFSChskLfg", twitter:"https://x.com/hi_kazaguruma", lit:"https://lit.link/guruma" }
+const joinMembers=[
+{name:"燈桜メリア",icon:"https://yt3.googleusercontent.com/xlfIj6xbG1UOqCkH2_vpO3K5y7SxZAzNuOoy0QhWkx1fpfdT-ApVVncaTnqNpxMV0O48GWxrIw=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@HizakuraMelia",twitter:"https://x.com/melia_hizakura",lit:"https://lit.link/HizakuraMelia"},
+{name:"シェイド・グレイシア",icon:"https://yt3.googleusercontent.com/OWgRic0kxL761xO5IKEqvXt4NkIVs9EXwb5w8nDJFTG4aq-zQ0e2SwMVYC6-tA2OoWtOo9-e=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@ShadeGlaciai",twitter:"https://x.com/ShadeGlacia",lit:""},
+{name:"ブルハ・ブルチ",icon:"https://yt3.googleusercontent.com/Z8oyfK9-yCdQe_36aqWGhy9rAYJKw2Z7DhsjgKOOO_rFMmyF7SdzuFfNkLYFpT_3QSG4awGFyw=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@buruchiCH",twitter:"https://x.com/buruchi0201",lit:""},
+{name:"黄ノ瀬 オブリ",icon:"https://yt3.googleusercontent.com/7iZke3rE-7m_duWommP4CR-igJBguNPVkJ0oEK2wnS99sM4eMsKbSlIb5xCBMCF4XLxMOwmRYj0=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@obu_youtube",twitter:"https://x.com/obbli_kinose",lit:"https://lit.link/obblikinose"},
+{name:"如月ヴァン",icon:"https://yt3.googleusercontent.com/s3FXxBmkrvagWFZhb1Y8qqiMADV64Wsox2M8JKWR4o86i5ZDL6dqKvjCef98E3z9KqLZf7ghTNI=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@kisaragi_van",twitter:"https://x.com/kisaragi_van",lit:""},
+{name:"尾前くう",icon:"https://yt3.googleusercontent.com/DJTGYDKv5wY89lkEE6nzhsGhA6MZ_hnlzgFy9Y47L5t5DNC2Ievm7kQaAdWNKhW_KZGI6ryD=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@Omaekuu",twitter:"https://x.com/0mae_kuu",lit:"https://lit.link/0maekuu"},
+{name:"Vi",icon:"https://yt3.googleusercontent.com/D5gZV6ci4xwpfnM0k0oYAnL9TGViI9NWx-NECeAOAda0sWIC7wrnBUjxJoPNbyiGRvL0EvSh=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@Vi_Vibre_JP",twitter:"https://x.com/Vi_VTuer",lit:""},
+{name:"虎鈴ととら",icon:"https://yt3.googleusercontent.com/11n8u8jC-yKD_s83NgsNX9TBBPujKStUWzQc7Z_CFb8NdSt33WmDgQkmyj9D1DpXFcFfqdPP=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@kosuzu_totora",twitter:"https://x.com/KosuzuTotora",lit:"https://lit.link/totora1010"},
+{name:"雨ノ詠ツユ",icon:"https://yt3.googleusercontent.com/Adj33mxU7dE92eyRRb7BIMH66JlrlHJBOrIpqlClRW8k6I2EbSxekbxyqTgRwf_oqJGTS_TZ3OA=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@amenouta24",twitter:"https://x.com/amenouta24",lit:"https://lit.link/amenouta24"},
+{name:"風車ひまり",icon:"https://yt3.googleusercontent.com/ratqjMn06Up8J9XNXsFCLEn-1U9ggjyWm8sNueV1kewwnnRD8wwf_Rdx75Jw7T0YT7NPRWXnrA=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/channel/UCvEYutoYNTb1eQFSChskLfg",twitter:"https://x.com/hi_kazaguruma",lit:"https://lit.link/guruma"}
 ];
 
-function addCards(list, memberArray) {
-  const container = document.getElementById(list);
-  memberArray.forEach((m, i) => {
-    container.innerHTML += `
+function addCards(id,data){
+  const el=document.getElementById(id);
+  data.forEach((m,i)=>{
+    el.innerHTML+=`
       <div class="card">
-        <img src="${m.icon}" data-index="${list}-${i}">
+        <img src="${m.icon}" data-index="${id}-${i}">
         <div class="name">${m.name}</div>
-      </div>
-    `;  
+      </div>`;
   });
 }
 
-addCards("mainList", mainMembers);
-addCards("joinList", joinMembers);
+addCards("mainList",mainMembers);
+addCards("joinList",joinMembers);
 
-const modalOverlay = document.getElementById("modalOverlay");
-const modalBox = document.getElementById("modalBox");
+const overlay=document.getElementById("modalOverlay");
+const box=document.getElementById("modalBox");
 
-document.body.addEventListener("click", (e) => {
-  const img = e.target.closest("img[data-index]");
-  if (!img) return;
-  const [group, idx] = img.getAttribute("data-index").split("-");
-  const m = (group === "mainList" ? mainMembers : joinMembers)[idx];
-  
-  modalBox.innerHTML = `
-    <div class="modal-close-btn" id="closeBtn">×</div>
+document.body.addEventListener("click",e=>{
+  const img=e.target.closest("img[data-index]");
+  if(!img)return;
+  const [group,idx]=img.dataset.index.split("-");
+  const m=(group==="mainList"?mainMembers:joinMembers)[idx];
+  box.innerHTML=`
+    <div class="modal-close-btn" id="c">×</div>
     <img src="${m.icon}">
-    <div style="font-weight:bold; margin-bottom:10px;">${m.name}</div>
+    <div style="font-weight:bold;margin-bottom:10px;">${m.name}</div>
     <a class="youtube" href="${m.youtube}" target="_blank">YouTube</a>
     <a class="twitter" href="${m.twitter}" target="_blank">Twitter</a>
-    ${m.lit ? `<a class="lit" href="${m.lit}" target="_blank">Lit.Link</a>` : ""}
+    ${m.lit?`<a class="lit" href="${m.lit}" target="_blank">Lit.Link</a>`:""}
   `;
-  modalOverlay.style.display = "flex";
-  document.getElementById("closeBtn").onclick = () => modalOverlay.style.display = "none";
+  overlay.style.display="flex";
+  document.getElementById("c").onclick=()=>overlay.style.display="none";
 });
 
-modalOverlay.onclick = (e) => { if (e.target === modalOverlay) modalOverlay.style.display = "none"; };
-
+overlay.onclick=e=>{if(e.target===overlay)overlay.style.display="none";}
 </script>
 
-<footer style="text-align:center; padding:20px;">
-  <a href="about.html" style="color:white; text-decoration:none; font-size:14px; opacity:0.8;">
+<footer style="text-align:center;padding:20px;">
+  <a href="about.html" style="color:#fff;text-decoration:none;font-size:14px;opacity:.8;">
     このサイトについて
   </a>
 </footer>
