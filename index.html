@@ -36,32 +36,43 @@ h2{
   border-radius:999px;
   text-decoration:none;
   backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
   z-index:1000;
-  opacity:.9;
   transition:.3s;
 }
 .about-floating:hover{
-  opacity:1;
   background:rgba(0,0,0,0.55);
 }
 
 .container{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
   gap:15px;
   padding:15px;
+  grid-template-columns:repeat(3,1fr);
+}
+
+@media(min-width:768px){
+  .container{
+    grid-template-columns:repeat(6,1fr);
+  }
+}
+
+@media(min-width:1200px){
+  .container{
+    grid-template-columns:repeat(9,1fr);
+  }
 }
 
 .card{
-  background:#fff;
   border-radius:15px;
   padding:15px;
   text-align:center;
-  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
   min-width:140px;
   max-width:180px;
 }
+
+.container .card:nth-child(odd){ background:#642828; }
+.container .card:nth-child(even){ background:#323232; }
 
 .card img{
   width:80px;
@@ -71,13 +82,19 @@ h2{
   cursor:pointer;
   transition:.3s;
 }
-.card img:hover{transform:scale(1.1);}
+.card img:hover{ transform:scale(1.1); }
 
 .name{
   margin-top:10px;
   font-weight:bold;
   font-size:14px;
   white-space:nowrap;
+  color:#000;
+  text-shadow:
+    -1px -1px 0 #fff,
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
 }
 
 .modal-overlay{
@@ -151,7 +168,8 @@ h2{
 </div>
 
 <script>
-const mainMembers=[
+
+const mainMembers = [
 {name:"【企画】青星あお",icon:"https://yt3.googleusercontent.com/oqaUt7-ZtU0OMqfxfuNpi5LGXMkP8qkYIr7xzXswizBh-JbLc__DCAtbYpKDTpumFgmLXXFI=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@A0B0SH1",twitter:"https://x.com/A0B0SH1",lit:"https://lit.link/a0B0sh1"},
 {name:"【窓口】胡蝶レイ",icon:"https://yt3.googleusercontent.com/V10KyYstx5PtaDSN8LYosSR6htCRW5mv8Pv3fofw5w5GWV0D-59ghE2IS67_i5S4D7-QlGoV=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@kochourei",twitter:"https://x.com/kochorei",lit:"https://lit.link/kochorei"},
 {name:"【窓口】猫戸ネル",icon:"https://yt3.googleusercontent.com/9LtaLCK-1zoaees0JNS2cNcdfdu-glV4Mvt9aK7hLsLdRMpvaaDVUxi5rvBTI6FOzJ_jbyTOaQ=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@nek0t0_neru",twitter:"https://x.com/nek0t0neru_zzz",lit:"https://lit.link/nekotoneru"},
@@ -216,16 +234,11 @@ document.body.addEventListener("click",e=>{
   document.getElementById("c").onclick=()=>overlay.style.display="none";
 });
 
-overlay.onclick=e=>{if(e.target===overlay)overlay.style.display="none";}
-</script>
+overlay.onclick=e=>{
+  if(e.target===overlay)overlay.style.display="none";
+};
 
-<footer style="text-align:center;padding:20px;">
-  <a href="about.html" style="color:#fff;text-decoration:none;font-size:14px;opacity:.8;">
-    このサイトについて
-  </a>
-</footer>
+</script>
 
 </body>
 </html>
-
-
