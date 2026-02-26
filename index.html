@@ -61,17 +61,23 @@ h2{
 
 .card{
   border-radius:12px;
-  padding:12px 8px;
+  padding:8px;
   text-align:center;
   box-shadow:0 6px 15px rgba(0,0,0,0.25);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  aspect-ratio:1/1; /* 正方形固定 */
 }
 
 .container .card:nth-child(odd){ background:#642828; }
 .container .card:nth-child(even){ background:#323232; }
 
 .card img{
-  width:70px;
-  height:70px;
+  width:50%;
+  height:auto;
+  max-width:70px;
   border-radius:50%;
   object-fit:cover;
   cursor:pointer;
@@ -233,6 +239,7 @@ overlay.onclick=e=>{
 
 </body>
 </html>
+
 
 
 
