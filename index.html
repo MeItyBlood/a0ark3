@@ -204,7 +204,7 @@ function addCards(id,data){
     el.innerHTML+=`
       <div class="card">
         <img src="${m.icon}" data-index="${id}-${i}">
-        <div class="name">${m.name}</div>
+       <div class="name">${m.name.replace(/・/g,"・<br>")}</div>
       </div>`;
   });
 }
@@ -240,6 +240,7 @@ overlay.onclick=e=>{
 
 </body>
 </html>
+
 
 
 
