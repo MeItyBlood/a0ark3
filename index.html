@@ -253,9 +253,9 @@ document.body.addEventListener("click",e=>{
     <div class="modal-close-btn" id="c">×</div>
     <img src="${m.icon}">
     <div style="font-weight:bold;margin-bottom:10px;">${m.name}</div>
-<a class="youtube" href="${m.youtube}" target="_blank">YouTube</a>
+${m.youtube?`<a class="youtube" href="${m.youtube}" target="_blank">YouTube</a>`:""}
 ${m.twitch?`<a class="twitch" href="${m.twitch}" target="_blank">Twitch</a>`:""}
-<a class="twitter" href="${m.twitter}" target="_blank">𝕏</a>
+${m.twitter?`<a class="twitter" href="${m.twitter}" target="_blank">𝕏</a>`:""}
 ${m.lit?`<a class="lit" href="${m.lit}" target="_blank">Lit.Link</a>`:""}
   `;
   overlay.style.display="flex";
@@ -270,6 +270,7 @@ overlay.onclick=e=>{
 
 </body>
 </html>
+
 
 
 
