@@ -244,25 +244,16 @@ const joinMembers=[
 {name:"麗月鏡華",icon:"https://yt3.googleusercontent.com/GT3R1NZaxrS1X4l0Au8bpgfAGXkux9cstTFv3RyZ01IIXiCrZChjw2XeNaoY2L9q58vsH5g_=s160-c-k-c0x00ffffff-no-rj",youtube:"https://www.youtube.com/@Reigetsu_Kyouka",twitch:"https://www.twitch.tv/kyoka0221",twitter:"https://x.com/Reigetsu_Kyouka",lit:""},
 ];
 
-function addCards(id,data){
+let currentMain=[];
+let currentJoin=[];
+
+function addCards(id,data,type){
 const el=document.getElementById(id);
 el.innerHTML="";
 data.forEach((m,i)=>{
 el.innerHTML+=`
 <div class="card">
-<img src="${m.icon}" data-index="${id}-${i}">
-<div class="name">${m.name.replace(/・/g,"・<br>")}</div>
-</div>`;
-});
-}
-
-function addJoinCards(data){
-const el=document.getElementById("joinList");
-el.innerHTML="";
-data.forEach((m,i)=>{
-el.innerHTML+=`
-<div class="card">
-<img src="${m.icon}" data-index="joinList-${i}">
+<img src="${m.icon}" data-type="${type}" data-index="${i}">
 <div class="name">${m.name.replace(/・/g,"・<br>")}</div>
 </div>`;
 });
@@ -271,14 +262,15 @@ el.innerHTML+=`
 function filterGroup(group){
 
 if(group==="all"){
-addCards("mainList",mainMembers);
-addJoinCards(joinMembers);
+currentMain=[...mainMembers];
+currentJoin=[...joinMembers];
 }else{
-const main = mainMembers.filter(m=>m.group===group);
-const join = joinMembers.filter(m=>m.group===group);
-addCards("mainList",main);
-addJoinCards(join);
+currentMain=mainMembers.filter(m=>m.group===group);
+currentJoin=joinMembers.filter(m=>m.group===group);
 }
+
+addCards("mainList",currentMain,"main");
+addCards("joinList",currentJoin,"join");
 
 }
 
@@ -291,8 +283,12 @@ document.body.addEventListener("click",e=>{
 const img=e.target.closest("img[data-index]");
 if(!img)return;
 
-const [group,idx]=img.dataset.index.split("-");
-const m=(group==="mainList"?mainMembers:joinMembers)[idx];
+const type=img.dataset.type;
+const idx=img.dataset.index;
+
+const m=type==="main"
+?currentMain[idx]
+:currentJoin[idx];
 
 box.innerHTML=`
 <div class="modal-close-btn" id="c">×</div>
@@ -306,6 +302,7 @@ ${m.lit?`<a class="lit" href="${m.lit}" target="_blank">Lit.Link</a>`:""}
 
 overlay.style.display="flex";
 document.getElementById("c").onclick=()=>overlay.style.display="none";
+
 });
 
 overlay.onclick=e=>{
@@ -316,6 +313,3 @@ if(e.target===overlay)overlay.style.display="none";
 
 </body>
 </html>
-
-
-
